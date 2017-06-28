@@ -1,0 +1,75 @@
+{
+    "arcgisRuntime": 0,
+    "capabilities": {
+        "audio": false,
+        "backgroundLocation": false,
+        "bluetooth": false,
+        "camera": false,
+        "localnotification": false,
+        "location": false,
+        "microphone": false,
+        "network": false,
+        "storage": true,
+        "vibration": false
+    },
+    "deployment": {
+        "android": {
+            "packageName": "com.esri.gamelogger"
+        },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "",
+        "clientId": "",
+        "ios": {
+            "bundleId": "com.esri.gamelogger",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "com.esri.gamelogger",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "fullScreen": false,
+            "minimumHeight": 0,
+            "minimumWidth": 0
+        },
+        "enableHighDpi": true,
+        "phone": {
+            "landscape": true,
+            "portrait": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true
+        }
+    },
+    "mainFile": "GameLoggerApp.qml",
+    "projectFile": "GameLoggerApp.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "appicon.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "major": 1,
+        "micro": 39
+    }
+}
