@@ -12,7 +12,15 @@ ToolBar {
 
         ToolButton {
             text: eventTimer.running ? qsTr("Stop") : qsTr("Start")
-            onClicked: eventTimer.running = !eventTimer.running
+            onClicked: {
+                if (!eventTimer.running) {
+                    previousEventTime = currentEventTime;
+                    timerStartTime = (new Date()).getTime() / 1000.0;
+                    eventTimer.running = true;
+                } else {
+                    eventTimer.running = false;
+                }
+            }
         }
 
         Text {

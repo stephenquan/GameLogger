@@ -2,16 +2,20 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 
 Menu {
+    signal resetDatabaseClicked()
+    signal sampleDatabaseClicked()
+    signal aboutClicked()
+
     MenuItem {
         text: qsTr("Reset Database")
 
-        onClicked: stackView.push(resetDatabasePage);
+        onClicked: resetDatabaseClicked()
     }
 
     MenuItem {
         text: qsTr("Sample Database")
 
-        onClicked: stackView.push(sampleDatabasePage);
+        onClicked: sampleDatabaseClicked()
     }
 
     MenuSeparator {
@@ -20,6 +24,6 @@ Menu {
     MenuItem {
         text: qsTr("About")
 
-        onClicked: stackView.push(aboutPage);
+        onClicked: aboutClicked()
     }
 }

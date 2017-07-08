@@ -5,6 +5,8 @@ import QtQuick.Controls.Material 2.1
 import ArcGIS.AppFramework 1.0
 
 Item {
+    id: item
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10
@@ -38,7 +40,7 @@ Item {
 
                 Text {
                     text: getTimeString(eventTime >= 0 ? eventTime : currentEventTime)
-                    font.bold: eventTime < 0
+                    font.bold: textField.focus
                     color: eventTime >= 0 || eventTimer.running ? Material.foreground : Material.color(Material.Grey, Material.Shade500)
                 }
 
@@ -48,6 +50,7 @@ Item {
                     Layout.fillWidth: true
 
                     text: eventText
+                    font.bold: focus
                     placeholderText: qsTr("Enter Event Text")
 
                     onTextChanged: {
@@ -93,15 +96,6 @@ Item {
                         }
                     }
                 }
-
-                Component.onCompleted: {
-                    /*
-                    if (currentEventId === eventId) {
-                        listView.positionViewAtEnd();
-                        textField.forceActiveFocus();
-                    }
-                    */
-                }
             }
         }
 
@@ -112,15 +106,12 @@ Item {
 
     EventsEditorMenu {
         id: eventsEditorMenu
-    }
 
-    Component.onCompleted: {
-        /*
-        if (currentEventId === -1) {
-            listView.positionViewAtEnd();
-            gameNameTextField.forceActiveFocus();
+        onDeleteGameClicked: {
+            item.forceActiveFocus();
+            stackView.push(deleteGamePage);
         }
-        */
+
     }
 
     function closeGame() {
@@ -128,7 +119,7 @@ Item {
             myDatabase.deleteGame(currentGameId);
         }
 
-        stackView.pop()
+        stackView.pop();
     }
 
     function openEventsEditorMenu() {
@@ -137,4 +128,3 @@ Item {
         eventsEditorMenu.open();
     }
 }
-

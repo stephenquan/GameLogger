@@ -2,10 +2,12 @@ import QtQuick.Controls 2.1
 import ArcGIS.AppFramework 1.0
 
 Menu {
+    signal deleteGameClicked()
+
     MenuItem {
         text: qsTr("Delete Game")
 
-        onClicked: { stackView.push(deleteGamePage); }
+        onClicked: deleteGameClicked()
     }
 
     MenuItem {

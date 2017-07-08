@@ -13,7 +13,10 @@ App {
     property string currentGameName: ""
     property real currentGameDate: -1
     property int currentEventId: -1
-    property int currentEventTime: 0
+    property real currentEventTime: 0
+    property real previousEventTime:0
+    property bool timerOn: false
+    property real timerStartTime: 0
     property int exitBackKey: 0
 
     StackView {
@@ -30,6 +33,18 @@ App {
 
         anchors.fill: parent
     }
+
+    /*
+    onBackButtonClicked: {
+        if (stackView.depth > 1) {
+            stackView.pop();
+            backButtonAction = App.BackButtonIgnore;
+            return;
+        }
+
+        backButtonAction = App.BackButtonSignal;
+    }
+    */
 
     Component {
         id: eventsEditorPage
@@ -77,7 +92,10 @@ App {
         interval: 1000
         repeat: true
 
-        onTriggered: currentEventTime += 1
+        onTriggered: {
+            var elapsed = (new Date()).getTime() / 1000.0 - timerStartTime;
+            currentEventTime = previousEventTime + Math.round(elapsed);
+        }
     }
 
     function toCSVString(str) {
@@ -110,6 +128,8 @@ App {
 
     focus: true
 
-    Keys.onReleased: backKey.keyPressed(event)
+    Keys.onPressed: {
+        event.accepted = backKey.keyPressed(event).accepted;
+    }
 
 }

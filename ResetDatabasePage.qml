@@ -39,7 +39,7 @@ Item {
 
                 onClicked: {
                     myDatabase.resetDatabase();
-                    stackView.pop(null);
+                    stackView.pop();
                 }
             }
 
@@ -51,7 +51,7 @@ Item {
                 text: qsTr("No")
 
                 onClicked: {
-                    stackView.pop(null);
+                    stackView.pop();
                 }
             }
         }

@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.1
 import ArcGIS.AppFramework 1.0
 
 Item {
+    id: item
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10
@@ -34,6 +36,21 @@ Item {
 
     GamePickerMenu {
         id: gamePickerMenu
+
+        onResetDatabaseClicked: {
+            item.forceActiveFocus();
+            stackView.push(resetDatabasePage);
+        }
+
+        onSampleDatabaseClicked: {
+            item.forceActiveFocus();
+            stackView.push(sampleDatabasePage);
+        }
+
+        onAboutClicked: {
+            item.forceActiveFocus();
+            stackView.push(aboutPage);
+        }
     }
 
     function newGame() {

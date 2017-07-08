@@ -39,7 +39,7 @@ Item {
         hideExitText.stop();
         exitText.opacity = 0;
 
-        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape || event.key === Qt.Key_MediaPrevious) {
             if (stackView.depth > 1) {
                 event.accepted = true;
                 exitBackKey = 0;
@@ -57,9 +57,11 @@ Item {
                     }
                 }
             }
-            return;
+            return event;
         }
 
         exitBackKey = 0;
+
+        return event;
     }
 }
